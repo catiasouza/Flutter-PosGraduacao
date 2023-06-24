@@ -49,7 +49,7 @@ class _PaisesDadosState extends State<PaisesDados> {
               return Container(
                 child: Card(
                   child: ExpansionTile(
-                    title: Text("${paises[index]["name"]}", style: TextStyle(color: Colors.blueAccent, fontWeight:
+                    title: Text("${paises[index]["name"]}", style: TextStyle(color: Colors.orangeAccent, fontWeight:
                     FontWeight.bold, fontSize: 20.0),),
                     children: [
                       Padding(

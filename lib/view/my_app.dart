@@ -9,6 +9,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sigla dos Paises',
       home: PaisesScreen(),
+      theme: ThemeData(
+        primaryColor: Colors.orangeAccent,
+
+      ),
     );
   }
 }

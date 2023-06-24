@@ -17,7 +17,7 @@ class Menu extends StatelessWidget with Mensagem {
             children: [
               Container(
                 alignment: Alignment.center,
-                color: Colors.blue,
+                color: Colors.orangeAccent,
                 height: 100.0,
                 child: Text("menu", style: TextStyle(fontSize: 20.0,
                     color:  Colors.white, fontWeight:  FontWeight.w400)),
@@ -54,7 +54,7 @@ class Menu extends StatelessWidget with Mensagem {
                                             PaisesScreen(pais: search.text)));
                                     showTMensagem("pesquisa realizada para o pais ${search.text}", context);
                                   },
-                                      child: Text("Ok", style: TextStyle(color: Colors.blueAccent),))
+                                      child: Text("Ok", style: TextStyle(color: Colors.orangeAccent),))
                                 ],
                                  mainAxisAlignment: MainAxisAlignment.end,
 
