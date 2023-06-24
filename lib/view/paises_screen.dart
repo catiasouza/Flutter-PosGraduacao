@@ -18,6 +18,7 @@ class PaisesScreen extends StatelessWidget {
           IconButton(icon: Icon(Icons.refresh), onPressed: () {
             Navigator.push(context, MaterialPageRoute(
                 builder: (BuildContext context) => PaisesScreen(pais: "")));
+            debugPrint("resultado:  ${Requisicao.requisicaoPaises()}");
           })
         ],
 
