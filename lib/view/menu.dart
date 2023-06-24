@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_paises_graduacao_app/view/mensagem.dart';
+import 'package:flutter_paises_graduacao_app/view/paises_screen.dart';
 import 'ajuda.dart';
 
-class Menu extends StatelessWidget {
+class Menu extends StatelessWidget with Mensagem {
 
   final TextEditingController search = TextEditingController();
 
@@ -41,9 +43,20 @@ class Menu extends StatelessWidget {
                                 children: [
                                   TextButton(onPressed: () {
                                     Navigator.pop(context);
+                                    showTMensagem("Operacao Cancelada", context);
                                   },
-                                      child: Text("Ok"))
+                                      child: Text("Cancelar")),
+
+                                  TextButton(onPressed: () {
+                                    Navigator.pop(context);
+                                    Navigator.push(context, MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            PaisesScreen(pais: search.text)));
+                                    showTMensagem("pesquisa realizada para o pais ${search.text}", context);
+                                  },
+                                      child: Text("Ok", style: TextStyle(color: Colors.blueAccent),))
                                 ],
+                                 mainAxisAlignment: MainAxisAlignment.end,
 
                               )
                             ],

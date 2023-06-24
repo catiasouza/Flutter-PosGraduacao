@@ -3,6 +3,9 @@ import 'package:flutter_paises_graduacao_app/service/requisicao.dart';
 
 class PaisesDados extends StatefulWidget {
 
+  final String pais;
+  PaisesDados({this.pais = ""});
+
   @override
   _PaisesDadosState createState() => _PaisesDadosState();
 }
@@ -18,7 +21,7 @@ class _PaisesDadosState extends State<PaisesDados> {
               builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
                 if (snapshot.hasData) {
                   List? paises = snapshot.data;
-                  return _listaPaises(paises);
+                  return _listaPaises(_filtrarPaises(widget.pais, paises, context));
                 } else {
                   return Container(
                     alignment: Alignment.center,
@@ -74,4 +77,21 @@ class _PaisesDadosState extends State<PaisesDados> {
       ),
     );
   }
+
+  List? _filtrarPaises(String pais, List paises, BuildContext context) {
+    List filtro = List();
+    String paisFormatado = "";
+    if (pais != ""){
+      String primeiraLetra = pais.substring(0,1);
+      paisFormatado = pais.replaceFirst(primeiraLetra, primeiraLetra.toUpperCase());
+    }
+
+    paises.forEach((p) {
+      if(p["name"] == paisFormatado) {
+        filtro.add(p);
+      }
+    });
+    return filtro.isEmpty ? paises : filtro;
+  }
 }
+//executar o aplicativo e realizar

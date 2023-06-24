@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_paises_graduacao_app/service/requisicao.dart';
 import 'package:flutter_paises_graduacao_app/view/paises_dados.dart';
-import 'menu.dart';
+import 'package:flutter_paises_graduacao_app/view/menu.dart';
 
 class PaisesScreen extends StatelessWidget {
+
+  final String pais;
+
+  PaisesScreen({this.pais = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +15,14 @@ class PaisesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Sigla dos Paises"),
         actions: [
-          IconButton(icon: Icon(Icons.refresh), onPressed: () {})
+          IconButton(icon: Icon(Icons.refresh), onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (BuildContext context) => PaisesScreen(pais: "")));
+          })
         ],
 
       ),
-      body: PaisesDados(),
+      body: PaisesDados(pais: pais),
       drawer:  Menu(),
     );
   }
